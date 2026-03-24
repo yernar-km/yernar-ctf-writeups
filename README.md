@@ -36,3 +36,4 @@ yernar-ctf-writeups/
 ## 🔧 TODO
 - add big reverse solution(aitu)
 - add Wireshark(Narxoz)
+- add PicoCTF and THM solutions
