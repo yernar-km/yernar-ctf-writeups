@@ -14,7 +14,7 @@ yernar-ctf-writeups/
 │   └── misc/
 └── another-ctf/
     └── ...
-
+```
 ##  Achievements
 * **Top 10 (6th place)** in the university CTF competition
 ![alt text](image.png)
