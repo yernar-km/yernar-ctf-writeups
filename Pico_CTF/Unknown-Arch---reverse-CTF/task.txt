@@ -1,0 +1,2 @@
+Our agents intercepted this strange authentication module from a hacker group's closed network. It appears they've stopped trusting standard processors and written their own custom architecture.
+
