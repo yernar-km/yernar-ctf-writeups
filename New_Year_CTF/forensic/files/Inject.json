@@ -1,0 +1,86 @@
+{
+	"title": 
+[
+"IIIIIIIIII                 jjjj                                                  tttt          ",
+"I::::::::I                j::::j                                              ttt:::t          ",
+"I::::::::I                 jjjj                                               t:::::t          ",
+"II::::::II                                                                    t:::::t          ",
+"  I::::Innnn  nnnnnnnn   jjjjjjj    eeeeeeeeeeee        ccccccccccccccccttttttt:::::ttttttt    ",
+"  I::::In:::nn::::::::nn j:::::j  ee::::::::::::ee    cc:::::::::::::::ct:::::::::::::::::t    ",
+"  I::::In::::::::::::::nn j::::j e::::::eeeee:::::ee c:::::::::::::::::ct:::::::::::::::::t    ",
+"  I::::Inn:::::::::::::::nj::::je::::::e     e:::::ec:::::::cccccc:::::ctttttt:::::::tttttt    ",
+"  I::::I  n:::::nnnn:::::nj::::je:::::::eeeee::::::ec::::::c     ccccccc      t:::::t          ",
+"  I::::I  n::::n    n::::nj::::je:::::::::::::::::e c:::::c                   t:::::t          ",
+"  I::::I  n::::n    n::::nj::::je::::::eeeeeeeeeee  c:::::c                   t:::::t          ",
+"  I::::I  n::::n    n::::nj::::je:::::::e           c::::::c     ccccccc      t:::::t    tttttt",
+"II::::::IIn::::n    n::::nj::::je::::::::e          c:::::::cccccc:::::c      t::::::tttt:::::t",
+"I::::::::In::::n    n::::nj::::j e::::::::eeeeeeee   c:::::::::::::::::c      tt::::::::::::::t",
+"I::::::::In::::n    n::::nj::::j  ee:::::::::::::e    cc:::::::::::::::c        tt:::::::::::tt",
+"IIIIIIIIIInnnnnn    nnnnnnj::::j    eeeeeeeeeeeeee      cccccccccccccccc          ttttttttttt  ",
+"                          j::::j                                                               ",
+"                jjjj      j::::j                                                               ",
+"               j::::jj   j:::::j                                                               ",
+"               j::::::jjj::::::j                                                               ",
+"                jj::::::::::::j                                                                ",
+"                  jjj::::::jjj                                                                 ",
+"                     jjjjjj                                                                    "
+],
+
+    "description": {
+        "ru": "На компьютере университета мы нашли подозрительный процесс и сохранили его вызовы Win32 API, наш сотрудник безопасности подозревает технику инъекции, найти доказательства в пользу его теории.",
+        "en": "We found a suspicious process on the university computer and saved its Win32 API calls. Our security officer suspects an injection technique and is looking for evidence to support his theory."
+    },
+    "questions": [
+        {
+            "question_ru": "What process injection technique was used by the attacker? (3 words, 2 spaces, answer in English)",
+            "question_en": "",
+            "answers": [
+                "Thread Local Storage",
+                "thread local storage",
+                "Thread local storage"
+            ]
+        },
+        {
+            "question_ru": "Какой API вызов использовался для создания снимков всех процессов и потоков в системе?",
+            "question_en": "Which API call was used to create snapshots of all processes and threads in the system?",
+            "answers": [
+                "CreateToolhelp32Snapshot"
+            ]
+        },
+        {
+            "question_ru": "Какой процесс пытается найти exe-файл для внедрения полезной нагрузки?",
+            "question_en": "What process is trying to find the exe file to inject the payload?",
+            "answers": [
+                "notepad.exe"
+            ]
+        },
+        {
+            "question_ru": "Какой PID у идентифицированного процесса?",
+            "question_en": "What is the PID of the identified process?",
+            "answers": [
+                "16224"
+            ]
+        },
+        {
+            "question_ru": "Каков размер шеллкода?",
+            "question_en": "What is the size of the shellcode?",
+            "answers": [
+				"511"
+            ]
+        },
+        {
+            "question_ru": "Какой API вызов использовался для выполнения внедренной полезной нагрузки в указанном процессе?",
+            "question_en": "Which API call was used to execute the embedded payload in the specified process?",
+            "answers": [
+                "CreateRemoteThread"
+            ]
+        },
+        {
+            "question_ru": "Метод внедрения, используемый злоумышленником, выполняется до вызова функции main(). Какой из API Win32 отвечает за завершение программы до выполнения функции main()?",
+            "question_en": "The injection method used by the attacker is executed before the main() is called. ​Which of the API call is responsible for terminating the program before executing the main() function?",
+            "answers": [
+				"ExitProcess"
+            ]
+        }
+    ]
+}
