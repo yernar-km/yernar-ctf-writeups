@@ -1,0 +1,1 @@
+Please help me crack this program, you need crack it just in time!
