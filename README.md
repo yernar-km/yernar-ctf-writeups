@@ -1,2 +1,27 @@
-# yernar-ctf-writeups
-Repository containing detailed CTF writeups across multiple categories, showcasing practical cybersecurity and offensive security skills
+#  Yernar's CTF Writeups
+
+Repository containing detailed CTF writeups across multiple categories, showcasing practical cybersecurity and offensive security skills.
+
+##  Repository Structure
+The repository is organized by CTF events. Each folder contains writeups for challenges solved during that competition:
+
+```text
+yernar-ctf-writeups/
+├── ctf-name/
+│   ├── web/
+│   ├── crypto/
+│   ├── pwn/
+│   └── etc/
+└── another-ctf/
+    └── ...
+```
+
+##  Achievements
+* **Top 10 (6th place)** in the university CTF competition
+![alt text](image.png)
+
+##  Disclaimer
+> All challenges were solved in legal, authorized CTF environments. The scripts, exploits, and methods shared in this repository are for **educational purposes only**.
+
+## Contact
+* **LinkedIn:** [Yernar Karimov](https://www.linkedin.com/in/yernar-karimov-9265b4350/)
