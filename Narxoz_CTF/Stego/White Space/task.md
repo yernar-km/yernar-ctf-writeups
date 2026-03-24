@@ -1,0 +1,1 @@
+A memo. Clean. Professional. Unremarkable. Our linguist read it three times and said nothing was wrong. Then she said: "Read it again. Slower." The flag was always there. You just weren't looking at the right thing.

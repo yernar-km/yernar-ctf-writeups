@@ -1,0 +1,16 @@
+INTERNAL MEMORANDUM
+
+TO   All Department Heads​‌‌​​​‌‌​‌‌‌‌​​‌​‌‌​​​‌‌​‌‌​‌‌‌​​‌‌​​‌​‌​‌‌‌​‌​​​‌‌‌‌​‌‌​​‌‌​‌​‌​​‌‌​‌‌​​‌‌​​‌​​​‌‌​​​‌​​‌‌​​​​‌​‌‌​​​​‌​​‌‌​​‌‌​‌‌​​​‌‌​​‌‌‌​​‌​​‌‌​‌‌​​‌‌​​‌‌​​​‌‌​​‌​​​‌‌​​‌‌​​‌‌‌​​​​‌‌​​‌‌​​​‌‌‌​​​​​‌‌‌​​‌​‌‌​​​‌​​​‌‌‌​​‌​​‌‌​​‌‌​‌‌​​​‌‌​​‌‌​​​‌​​‌‌​​​​​​‌‌‌​​​​‌‌​​​‌‌​​‌‌​​​‌​​‌‌​​​​​​‌‌​‌​​​‌‌​​‌‌​​​‌‌​‌​‌​‌‌​​​‌‌​​‌‌​‌‌‌​‌‌‌‌‌​‌
+FROM Office of the Chief Security Officer
+DATE March 1, 2026
+RE   Updated Data Handling Policy
+
+Effective immediately, all staff are required to follow the updated
+data classification guidelines distributed last quarter. Any documents
+marked CONFIDENTIAL must be encrypted before transfer over external
+networks. Violations will be subject to disciplinary review.
+
+Please acknowledge receipt of this memo by end of business Friday.
+
+Regards,
+CSO Office
