@@ -1,13 +1,13 @@
 #  Yernar's CTF Writeups
 
-Repository containing detailed CTF writeups across multiple categories, showcasing practical cybersecurity and offensive security skills.
+Solving CTFs since late 2026. This repo is where I document challenges I found interesting or learned something new from
 
 ##  Repository Structure
 The repository is organized by CTF events. Each folder contains writeups for challenges solved during that competition:
 
 ```text
 yernar-ctf-writeups/
-├── ctf-name/
+├── Narxoz_CTF/
 │   ├── web/
 │   ├── crypto/
 │   ├── pwn/
@@ -19,13 +19,6 @@ yernar-ctf-writeups/
 * **Top 10 (6th place)** in the university CTF competition
 ![alt text](image.png)
 
-## Skills Demonstrated
-- Vulnerability Analysis
-- Web Exploitation (XSS, SSTI, etc.)
-- Cryptography Attacks
-- Reverse Engineering Basics
-- Steganography
-- Problem-Solving in CTF environments
 
 ##  Disclaimer
 > All challenges were solved in legal, authorized CTF environments. The scripts, exploits, and methods shared in this repository are for **educational purposes only**.
