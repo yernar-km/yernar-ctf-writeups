@@ -1,0 +1,1 @@
+You have recieved a message in a bottle, saying something about the strange behavior of sea creatures. I wonder what that could be about?
