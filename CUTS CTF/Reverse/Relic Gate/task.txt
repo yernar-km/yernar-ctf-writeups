@@ -1,0 +1,10 @@
+ Relic Gate
+
+300
+6 (75% liked) 2
+
+We recovered a token checker from an internal relic archive workflow. The binary validates a local access token, but the actual archive gate is remote.
+
+Recover the correct token and submit it to the service.
+
+nc challs.cuts.uz 31337
