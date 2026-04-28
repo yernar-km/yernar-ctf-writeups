@@ -1,39 +1,93 @@
-import hashlib
+import requests
+import time
 
-m = 1 << 64
-a = 6364136223846793005
-x0 = 9979116872503376424
-tops = [0x4dbde5aae889, 0x2b2432b3f2db, 0xfcf440f24540, 0xfbcad686ffe6, 0xcd56f6f37507, 0x71a7e648269b, 0xbb77d85f4759, 0x3ccb3f70538e]
-cipher_hex = "8ffeb51f88269c7d571a165476a6ffcae38af32beb58013d97ce5f77c1f571aca5df9831"
+# Known exact points
+KNOWN = [
+    {"lat": 43.129635, "lng": 77.055286},  # 1 - exact (email 1.jpg)
+    None,                                    # 2 - unknown (15:49)
+    {"lat": 43.127049, "lng": 77.054271},  # 3 - exact (email 4.jpg)
+    {"lat": 43.125896, "lng": 77.053974},  # 4 - exact (Durov GPS)
+    None,                                    # 5 - unknown (16:16)
+    {"lat": 43.120888, "lng": 77.053866},  # 6 - exact (email 8.jpg)
+]
 
-found_c = None
-for r0 in range(65536):
-    y1 = (tops[0] << 16) | r0
-    c = (y1 - a * x0) % m
-    ok = True
-    y = x0
-    for i in range(8):
-        y_next = (a * y + c) % m
-        if (y_next >> 16) != tops[i]:
-            ok = False
+URL = "http://forgotten-vd7j8ty4.alfactf.ru/api/verify"
+
+def try_points(p2, p5):
+    points = [KNOWN[0], p2, KNOWN[2], KNOWN[3], p5, KNOWN[5]]
+    try:
+        r = requests.post(URL, json={"points": points}, timeout=5)
+        data = r.json()
+        if data.get("valid"):
+            print(f"\n🎉 НАЙДЕНО! p2={p2}, p5={p5}")
+            print(data)
+            return True
+        # Print any non-standard messages
+        msg = data.get("message", "")
+        if "правиль" not in msg and "неправиль" not in msg:
+            print(f"  Unusual msg: {msg} | p2={p2} p5={p5}")
+    except Exception as e:
+        print(f"Error: {e}")
+        time.sleep(2)
+    return False
+
+print("=== Brute force маршрута Горельник ===")
+print(f"URL: {URL}")
+print()
+
+found = False
+count = 0
+
+# Strategy: search on a grid with step 0.0001 (~10m)
+# Point 2: near 43.1289, 77.0550 (6 min from pt1, trail going south)
+# Point 5: near 43.1249, 77.0540 (9 min from pt4, trail going south)
+
+# First pass: coarse grid step=0.0002 (~20m), range +-0.003
+print("Pass 1: coarse grid (step=0.0002, range +-0.005)...")
+for lat2_i in range(-25, 26):
+    lat2 = round(43.1289 + lat2_i * 0.0002, 6)
+    lon2 = 77.0550  # longitude barely changes along trail
+
+    for lat5_i in range(-25, 26):
+        lat5 = round(43.1249 + lat5_i * 0.0002, 6)
+        lon5 = 77.0540
+
+        p2 = {"lat": lat2, "lng": lon2}
+        p5 = {"lat": lat5, "lng": lon5}
+        count += 1
+
+        if try_points(p2, p5):
+            found = True
             break
-        y = y_next
-    if ok:
-        found_c = c
-        print(f"Found c = {c} (0x{c:016x})")
-        y = x0
-        for i in range(9):
-            y = (a * y + c) % m
-        x9 = y
-        print(f"x9 = {x9} (0x{x9:016x})")
+    if found:
         break
 
-if found_c is None:
-    print("No solution found")
-else:
-    key = hashlib.sha256(x9.to_bytes(8, 'big')).digest()
-    print(f"Key (hex): {key.hex()}")
-    cipher = bytes.fromhex(cipher_hex)
-    decrypted = bytes([cipher[i] ^ key[i % len(key)] for i in range(len(cipher))])
-    print(f"Decrypted (hex): {decrypted.hex()}")
-    print(f"Decrypted (ascii): {decrypted.decode('ascii', errors='replace')}")
+if not found:
+    print(f"\nPass 2: fine grid with lon variation (step=0.0001)...")
+    for lat2_i in range(-30, 31):
+        lat2 = round(43.1289 + lat2_i * 0.0001, 6)
+        for lon2_i in range(-15, 16):
+            lon2 = round(77.0550 + lon2_i * 0.0001, 6)
+
+            for lat5_i in range(-30, 31):
+                lat5 = round(43.1249 + lat5_i * 0.0001, 6)
+                for lon5_i in range(-15, 16):
+                    lon5 = round(77.0540 + lon5_i * 0.0001, 6)
+
+                    p2 = {"lat": lat2, "lng": lon2}
+                    p5 = {"lat": lat5, "lng": lon5}
+                    count += 1
+
+                    if count % 5000 == 0:
+                        print(f"  Tried {count}... lat2={lat2} lon2={lon2} lat5={lat5} lon5={lon5}")
+
+                    if try_points(p2, p5):
+                        found = True
+                        break
+                if found: break
+            if found: break
+        if found: break
+
+print(f"\nTotal attempts: {count}")
+if not found:
+    print("Не нашли. Попробуй расширить диапазон поиска.")
