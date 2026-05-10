@@ -247,7 +247,7 @@ hacker@b4526c181748:~$
 
 **Флаг 5:** чтобы получить этот флаг нужно написать staff в дискорд со крином измененного MOTD
 
-![ds](../../../../ds.jpg)
+<img width="1485" height="587" alt="ds" src="https://github.com/user-attachments/assets/f9baa1b2-82fd-49de-8784-04229c37799d" />
 
 
 ---
